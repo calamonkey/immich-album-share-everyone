@@ -1,0 +1,4 @@
+album-share.env
+*.env
+!album-share.env.example
+__pycache__/

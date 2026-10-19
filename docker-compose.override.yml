@@ -1,0 +1,13 @@
+# Drop this file next to Immich's docker-compose.yml. Docker Compose merges
+# docker-compose.override.yml automatically, so Immich's own compose file stays untouched
+# (and can be replaced on upgrades). If you already have an override file, merge this
+# service into it.
+services:
+  album-share:
+    build: ./album-share
+    # or use the prebuilt image instead of building locally:
+    # image: ghcr.io/calamonkey/immich-album-share-everyone:latest
+    env_file: ./album-share.env
+    depends_on:
+      - immich-server
+    restart: always
